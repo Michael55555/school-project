@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>School</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+  <link rel="stylesheet" href="style.css">
+  <style id="style"></style>
+</head>
+<body>
+  <div class="nav">
+      <img id=icon src="meine_schule.png">
+      <a href="hausaufgaben/hausaufgaben.html">Hausaufgaben</a>
+      <a href="stundenplan/stundenplan.html">Stundenplan</a>
+      <a href="vocab-trainer/vocab-trainer.html">Vocabulary</a>
+  </div>
+  <ol id="list"></ol>
+  <h1 id="header"></h1>
+  <script>
+    let model = {
+      listItems: ['Deutsch', 'Mathe', 'Englisch', 'Musik', 'Geschichte', 'Biologie', 'Spanisch', 'Kunst', 'Bibel Unterricht', 'Physik', 'Sport', 'Chemie', 'Franz&oumlsisch'],
+      inhalt: ['deutsch', 'mathe', 'englisch', 'musik', 'geschichte', 'biologie', 'spanisch', 'kunst', 'bibel_unterricht', 'physik', 'sport', 'chemie', 'französisch']
+    }
+
+    let listView = {
+      init: () => {
+        let listElem = document.getElementById('list');
+        let parentElem = document.getElementsByTagName('body')[0];
+        let count = 0
+        for (let count in model.listItems) {
+          let item = model.listItems[count];
+          let itemElem = document.createElement('a');
+          itemElem.innerHTML = '<li>' + item + '</li>';
+          itemElem.href = `content/${model.inhalt[count]}/${model.inhalt[count]}.html`;
+          listElem.appendChild(itemElem);
+        }
+      }
+    }
+
+    let octopus = {
+      init: () => {
+        listView.init()
+      },
+    }
+
+    onload = octopus.init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+
+		<link rel="stylesheet" href="../../style.css">
+		<style id="style"></style>
+	</head>
+	<body>
+		<!--<div id="test">-->
+			<ol id="list"></ol>
+			<h1 id="header"></h1>
+		<!--</div>
+		<textarea id="input"></textarea>-->
+		<script>
+ let model = {
+  listItems: ['Quadratische Funktionen','Quadratische Gleichungen', 'Potenzen und Potenzfunktionen', 'Exponentialfunktionen','Wachstum','Trigonometrische Berechnungen','Die Sinusfunktion','Mit Wahrscheinlichkeiten rechnen', 'Sachprobleme', 'Wiederholung'],
+  inhalt: ['quadratische_funktionen', 'quadratische_gleichungen', 'potenzen_und_potenzfunktionen','exponentialfunktionen','wachstum','trigonometrische_berechnungen','die_sinusfunktion','mit_wahrscheinlickeit_rechnen','sachprobleme','wiederholung']
+}
+
+let listView = {
+  init: () => {
+    let listElem = document.getElementById('list');
+    let parentElem = document.getElementsByTagName('body')[0];
+    let count = 0
+    for(let count in model.listItems) {
+      let item = model.listItems[count];
+      let itemElem = document.createElement('a');
+      itemElem.innerHTML = '<li>' + item + '</li>';
+      itemElem.href = `inhalt/${model.inhalt[count]}/index.html`;
+      /*itemElem.addEventListener('click', ()=>octopus.changeSzene(count))*/
+      listElem.appendChild(itemElem);
+    }
+  } 
+}
+/*let itemView = {
+  init: num => {
+     let listElem = document.getElementById('list');
+     let headerElem = document.getElementById('header');
+     //console.log(listElem.innerHTML + 'j')
+     listElem.innerHTML = '';
+     header.textContent = model.listItems[num];
+  }
+}*/
+/*let editorView = {
+  init:()=>{
+    let inputElem = document.getElementById('input');
+    let styleElem = document.getElementById('style');
+    setInterval(() => {
+      styleElem.textContent = inputElem.value;
+    },100)
+  }
+}*/
+let octopus = {
+  init: () => {
+    listView.init()
+    //editorView.init()
+  },
+  /*changeSzene: count => {
+    //console.log('changeSzene()' + count)
+     itemView.init(count);
+  }*/
+}
+
+onload = octopus.init();
+
+  
+		</script>
+	</body>
+</html>

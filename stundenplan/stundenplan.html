@@ -1,0 +1,43 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+	<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+	<table>
+		<tr>
+			<th>Montag</th>
+			<th>Dienstag</th>
+			<th>Mittwoch</th>
+			<th>Donnerstag</th>
+			<th>Freitag</th>
+		</tr>
+		<tr>
+			<td>Mathe</td>
+			<td>Mathe</td>
+			<td>Geschichte</td>
+			<td>Deutsch</td>
+			<td>Englisch</td>
+	</table>
+	<div id="vertretung"></div>
+	<a href="../school.html">Back</a>
+	<script>
+		onload = () => {
+			var datum = new Date();
+			var today = datum.getDay();
+			var std = datum.getHours();
+			if (std > 15) today = today + 1;
+			var thedayafter = today + 1;
+			if (today < 1) { today = 1; thedayafter = 2 }
+			if (today > 4) thedayafter = 1;
+			if (today > 5) { today = 1; thedayafter = 2 }
+			var v = document.getElementById('vertretung');
+			v.innerHTML += '<iframe width="100%" height="465" frameborder="0" src="https://docs.google.com/spreadsheet/pub?hl=de&hl=de&key=0Ahx1h1vcW-LCdEJ2ZWdOWWhzdVBtazZ5RXdKVld5Zmc&single=true&gid=' + today + '&range=A2%3AAI26&output=html&gridlines=false&widget=false&chrome=false"></iframe>';
+			v.innerHTML += '<iframe width="100%" height="480" frameborder="0" src="https://docs.google.com/spreadsheet/pub?hl=de&hl=de&key=0Ahx1h1vcW-LCdEJ2ZWdOWWhzdVBtazZ5RXdKVld5Zmc&single=true&gid=' + thedayafter + '&range=A2%3AAI26&output=html&gridlines=false&widget=false&chrome=false"></iframe>';
+		};
+	</script>
+</body>
+
+</html>
